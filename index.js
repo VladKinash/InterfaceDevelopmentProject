@@ -22,6 +22,7 @@ let User = require('./models/user');
 let Message = require('./models/message');
 let Doctor = require('./models/doctor')
 let News = require('./models/news')
+let Pet = require('./models/pet')
 
 let db = process.env.DB_NAME;
 let username = process.env.DB_USER;
@@ -45,6 +46,13 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+app.use((req, res, next) => {
+    res.locals.username = req.session.username ? true : false;
+    res.locals.doctor = req.session.doctor ? true : false;
+    res.locals.email = req.session.email;
+    next();
+    console.log(res.locals.email)
+});
 
 
 app.post('/register', async (req, res) => {
@@ -78,6 +86,40 @@ app.post('/register', async (req, res) => {
 });
 
 
+app.post('/registerPet', async (req, res) => {
+
+    await Pet.create({
+        name: req.body.name,
+        vaccines: req.body.vaccines,
+        species: req.body.species,
+        sex: req.body.sex,
+        ownerEmail: req.body.ownerEmail,
+        dateOfBirth: req.body.dateOfBirth
+    });
+
+    res.redirect('/pets');
+});
+
+app.get('/pets', async (req, res) => {
+    try {
+        const pets = await Pet.find().sort({ createdAt: -1 }).exec();
+        res.render('pets', { pets }); // Pass pets to the view template
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to retrieve pets' });
+    }
+});
+
+app.get('/pets_doctor', async (req, res) => {
+    try {
+        const pets = await Pet.find().sort({ createdAt: -1 }).exec();
+        res.render('pets_doctor', { pets }); // Pass pets to the view template
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to retrieve pets' });
+    }
+});
+
 
 app.post('/login', async (req, res) => {
     const existingUser = await User.findOne({ 'username': req.body.username }).exec();
@@ -89,6 +131,7 @@ app.post('/login', async (req, res) => {
         .then(result => {
             if (result) {
                 req.session.username = req.body.username;
+                req.session.email = existingUser.email; // Set email from existingUser
                 Doctor.findOne({ 'doctor_username': req.body.username }).exec()
                     .then(doctor => {
                         if (doctor) {
@@ -144,12 +187,6 @@ app.get('/news', async (req, res) => {
     }
 });
 
-app.use((req, res, next) => {
-   res.locals.username = req.session.username ? true : false;
-   res.locals.doctor = req.session.doctor ? true : false;
-   next();
-});
-
 
 
 app.get('/logout', (req, res) =>{
@@ -166,8 +203,8 @@ app.get('/homepage', (req, res) => {
     res.render('homepage');
 });
 
-app.get('/profile', (req, res,) =>{
-    res.render('profile');
+app.get('/pets', (req, res,) =>{
+    res.render('pets');
 })
 
 app.get('/contacts', (req, res,) =>{
@@ -185,4 +222,12 @@ app.get('/services', (req, res) => {
 
 app.get('/news', (req, res) => {
     res.render('news');
+})
+
+app.get('/register_pet', (req, res) => {
+    res.render('register_pet');
+})
+
+app.get('/pets_doctor', (req, res) => {
+    res.render('pets_doctor');
 })

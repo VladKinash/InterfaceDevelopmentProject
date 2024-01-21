@@ -4,12 +4,10 @@ var pet = new mongoose.Schema({
     name: String,
     vaccines: String,
     species: String,
-    breed: String,
     sex: String,
-    passportID: String,
     ownerEmail: String,
     dateOfBirth: Date
-}, {collection: 'users'});
+}, {collection: 'pets'});
 
 const Pet = mongoose.model('Pet', pet);
 
