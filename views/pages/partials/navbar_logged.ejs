@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/homepage">
+                <img src="views/photos/erizo-logo.png" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto horizontal-navbar">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/profile">Your profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/contacts">Contact us now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/">Your pets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<style>
+    .horizontal-navbar li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+
+    .wide-dropdown {
+        width: 300px;
+    }
+
+    .wide-input{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar {
+        background-color: #f2e8cf;
+        border-radius: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .hover-effect:hover {
+    background-color: #f6d0b1; 
+    transition: background-color 0.3s ease; 
+    border-radius: 10px;
+    }
+
+    .logo{
+        max-height: 50px;
+    }
+
+</style>

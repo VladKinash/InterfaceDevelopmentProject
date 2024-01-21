@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Homepage</title>
+</head>
+<body>
+    <% if (locals.doctor) { %>
+        <%- include('partials/navbar_doctor.ejs') %>
+    <% } else if (locals.username) { %>
+        <%- include('partials/navbar_logged.ejs') %>
+    <% } else { %>
+        <%- include('partials/navbar.ejs') %>
+    <% } %>
+
+    <div class="intro-text">
+        <h1>Welcome Erizo VetClinic!</h1>
+        <p>We take care of your cute ones.</p>
+        <p>We are here to provide any kind of medical services to animals.</p>
+        <p>Contact us now!</p>
+        <a href="/contacts" class="btn btn-primary btn-contact btn-lg">Contact</a>
+    </div>
+
+    
+
+    <%- include('partials/footer.ejs') %>
+
+
+    
+
+
+    <img src="views/photos/pomeranian.jpg" alt="A picture of three cute pomeranian puppies" class="img-pomeranian">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+<style>
+    .img-pomeranian {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .intro-text {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+    }
+
+</style>
+
+</html>

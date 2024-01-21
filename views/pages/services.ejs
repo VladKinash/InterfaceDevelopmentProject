@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Services</title>
+</head>
+<body>
+    <% if (locals.doctor) { %>
+        <%- include('partials/navbar_doctor.ejs') %>
+    <% } else if (locals.username) { %>
+        <%- include('partials/navbar_logged.ejs') %>
+    <% } else { %>
+        <%- include('partials/navbar.ejs') %>
+    <% } %>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Dentistry</h5>
+                        <p class="card-text">Short description of Dentistry service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Surgeries</h5>
+                        <p class="card-text">Short description of Surgeries service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Emergency</h5>
+                        <p class="card-text">Short description of Emergency service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Vaccinations</h5>
+                        <p class="card-text">Short description of Vaccinations service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Parasite Prevention</h5>
+                        <p class="card-text">Short description of Parasite Prevention service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Allergies</h5>
+                        <p class="card-text">Short description of Allergies service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Hospitalization</h5>
+                        <p class="card-text">Short description of Hospitalization service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Grooming</h5>
+                        <p class="card-text">Short description of Grooming service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card rounded">
+                    <div class="card-body">
+                        <h5 class="card-title">Parasite Prevention</h5>
+                        <p class="card-text">Short description of Parasite Prevention service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <a href="/contacts" class="btn btn-primary btn-contact btn-lg">Contact us now!</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+<style>
+    .container{
+        padding-top: 100px;
+    }
+
+    .card-body{
+        background-color: antiquewhite;
+    }
+</style>
+</html>

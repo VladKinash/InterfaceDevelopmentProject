@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/homepage">
+                <img src="views/photos/erizo-logo.png" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto horizontal-navbar">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hover-effect" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Login
+                        </a>
+                        <div class="dropdown-menu wide-dropdown" aria-labelledby="navbarDropdown">
+                            <form class="px-4 py-3" action="/login" method="POST" novalidate>
+                                <div class="mb-3">
+                                    <label for="loginUsername" class="form-label">Username</label>
+                                    <input type="text" class="form-control wide-input" id="loginUsername" name="username" placeholder="Enter your username">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control wide-input" id="loginPassword" name="password" placeholder="Password">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button type="submit" class="btn btn-primary">Sign in</button>
+                                    <button type="button" class="btn btn-secondary register-button" onclick="window.location.href='/register'">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/contacts">Contact us now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-effect" href="/news">News</a>
+                    </li>
+               
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<style>
+    .horizontal-navbar li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+
+    .wide-dropdown {
+        width: 300px;
+    }
+
+    .wide-input{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar {
+        background-color: #f2e8cf;
+        border-radius: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .hover-effect:hover {
+    background-color: #f6d0b1; /* This is a light grey color. Change it to whatever you want */
+    transition: background-color 0.3s ease; /* This makes the color change gradually */
+    border-radius: 10px;
+    }
+
+    .register-button{
+        background-color: #ce4760;
+    }
+
+    .logo{
+        max-height: 50px;
+    }
+
+
+</style>
